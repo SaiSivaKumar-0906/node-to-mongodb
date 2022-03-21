@@ -3,18 +3,18 @@ const app = express();
 const mongoose = require('mongoose');
 const models = require('./mongoose/models')
 
+mongoose.connect('mongodb://localhost:27017/testing-my-skills')
 
-mongoose.connect('mongodb://localhost/to-do-list')
 
 app.use(express.json())
 
 app.post("/api/create", async (req, res) => {
   const record = req.body;
   console.log(record);
-  let two = models.create(record)
-  console.log(two)
+  const one = await models.create(record)
+  console.log(one)
 });
 
 app.listen(9669, () => {
-  console.log("http://localhost:"+9669);
+  console.log("http://localhost:"+9669+'/api/create');
 }); 

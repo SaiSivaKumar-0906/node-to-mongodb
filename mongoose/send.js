@@ -1,12 +1,16 @@
- const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
 
- const schema = new mongoose.Schema({
- record : { type:String, required:true},
- date : { type:Number, default:96}
- })
+const shcemas =  mongoose.Schema({
+    string : {
+        type : String,
+    },
+    number : {
+        type : Number,
+        default : 100
+    }
+})
 
-const put = mongoose.model('schema', schema)
+const one = mongoose.model("models", shcemas)
 
- module.exports=put;
-
+module.exports= one

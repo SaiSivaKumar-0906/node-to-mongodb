@@ -2,15 +2,16 @@ const mongoose = require('mongoose')
 
 
 const shcemas =  mongoose.Schema({
-    string : {
-        type : String,
+    record : {
+        type : JSON,
     },
     number : {
         type : Number,
-        default : 100
-    }
-})
+        required : true,
+        default : Date.now(),
+    },
+},{ collection : "my-first-database"});
 
-const one = mongoose.model("models", shcemas)
+const one = mongoose.model("modelz", shcemas)
 
 module.exports= one

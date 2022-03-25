@@ -27,6 +27,21 @@ app.get("/api/read", async (req, res)=>{
   res.json(response)
 })
 
+app.post("/api/modify", async (req, res)=>{
+  const {old : oldTimes, news : newTimes} = req.body
+  const response = await models.updateOne({
+    record : oldTimes
+  }, 
+   {
+     $set : {
+       record : newTimes
+     }      
+   }
+  )
+  
+  console.log(response)
+  res.json({response})
+})
 
 
 app.listen(9669, () => {

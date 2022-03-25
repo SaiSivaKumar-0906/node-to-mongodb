@@ -43,6 +43,14 @@ app.post("/api/modify", async (req, res)=>{
   res.json({response})
 })
 
+app.post("app/delete", async (req, res)=>{
+ const reqs = req.body
+ const responses = await models.deleteOne(reqs)
+ console.log(responses)
+ res.json(responses)
+
+})
+
 
 app.listen(9669, () => {
   console.log("http://localhost:"+9669+'/api/create');
